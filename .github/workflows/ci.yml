@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build compiler
+        run: make
+
+      - name: Compile and run test program
+        run: |
+          ./compiler test.c
+          gcc program.s -o program
+          ./program || [ $? -eq 2 ]
