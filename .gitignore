@@ -1,0 +1,18 @@
+# Compiler binaries (per-stage test builds and the main one)
+/compiler
+/assembly
+/emitter
+/lexer
+/parser
+/tacky
+/program
+
+# Generated output files
+tokens.txt
+ast.txt
+tacky.txt
+assembly.txt
+program.s
+
+# Object files
+*.o
